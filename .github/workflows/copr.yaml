@@ -20,6 +20,7 @@ jobs:
         pyp2spec pello
         echo "pyp2spec ran successfully"
         spectool -gR python-pello.spec
+        echo "sources downloaded successfully"
         rpmbuild -bs python-pello.spec
         copr build ksurma/ghtest --nowait ~/rpmbuild/SRPMS/*.src.rpm
 
