@@ -15,11 +15,11 @@ jobs:
     - name: install deps
       run: dnf -y install rpm-build rpmdevtools copr-cli
     - run: |
-      python -m pip install pyp2spec
-      pyp2spec pello
-      spectool -gR python-pello.spec
-      rpmbuild -bs python-pello.spec
-      copr build ksurma/ghtest --nowait ~/rpmbuild/SRPMS/*.src.rpm
+        python -m pip install pyp2spec
+        pyp2spec pello
+        spectool -gR python-pello.spec
+        rpmbuild -bs python-pello.spec
+        copr build ksurma/ghtest --nowait ~/rpmbuild/SRPMS/*.src.rpm
 
   # selftest:
   #   permissions:
