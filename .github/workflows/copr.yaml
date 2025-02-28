@@ -15,8 +15,10 @@ jobs:
     - name: install deps
       run: dnf -y install rpm-build rpmdevtools copr-cli
     - run: |
+        python -m venv venv && . venv/bin/activate
         python -m pip install pyp2spec
         pyp2spec pello
+        echo "pyp2spec ran successfully"
         spectool -gR python-pello.spec
         rpmbuild -bs python-pello.spec
         copr build ksurma/ghtest --nowait ~/rpmbuild/SRPMS/*.src.rpm
